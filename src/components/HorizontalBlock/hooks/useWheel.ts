@@ -5,7 +5,10 @@ const useWheel = <T extends HTMLElement>(ref: RefObject<T>) => {
     if (ref.current) {
       const handleWheel = (e: WheelEvent) => {
         e.preventDefault();
-        ref.current?.scrollBy({ left: e.deltaY, behavior: "smooth" });
+        ref.current?.scrollBy({
+          left: e.deltaY || e.deltaX,
+          behavior: "smooth",
+        });
       };
 
       ref.current.addEventListener("wheel", handleWheel, { passive: false });

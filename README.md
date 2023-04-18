@@ -117,3 +117,7 @@
 補充3: video onResize 沒反應 我才使用 ResizeObserver
 
 #### Horizontal Block 
+
+1. 創建 img List 跑 map 渲染出來即可
+2. figma 上面圖片不完整所以抓兩個一樣照片來充當4與5
+3. 撰寫 useWheel hook 綁事件 滑鼠滑動可以水平滾動 需要用到useEffect 因為 必須使用原生事件綁定 會寫到 { passive: false }
