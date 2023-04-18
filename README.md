@@ -111,3 +111,9 @@
 5. 撰寫第二個 custom hook -> useResizeObserver
    1. 需求是 當 該元素改變大小 就執行特定事情
    2. 使用 ResizeObserver 去監聽元素 並在元素大小發生改變時 觸發 ResizeHandler
+
+補充1: useIntersectionObserver 可以使用 react-intersection-observer 代替 但我不熟
+補充2: useIntersectionObserver 可以使用 framer-motion 的 useInView 代替 但 會創建很多 IntersectionObserver 出來
+補充3: video onResize 沒反應 我才使用 ResizeObserver
+
+#### Horizontal Block 
