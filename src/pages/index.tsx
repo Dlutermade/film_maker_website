@@ -1,4 +1,5 @@
 import CardsShuffleBlock from "@/components/CardsShuffleBlock";
+import EffectiveVideoBlock from "@/components/EffectiveVideoBlock";
 import FullScreenText from "@/components/FullScreenText";
 import Header from "@/components/Header";
 import Head from "next/head";
@@ -20,6 +21,7 @@ export default function Home() {
             "We love to visualize stories because we love people and they inspire us."
           }
         />
+        <EffectiveVideoBlock />
       </main>
     </>
   );

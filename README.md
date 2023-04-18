@@ -92,3 +92,22 @@
          translateZ: ["0px", "0px", "0px", "30px", "30px"],
       }
       3. 同 3.4.3
+
+#### Effective video block 
+
+1. 先滿版且維持長寬比例 使用 Chakra-UI AspectRatio
+2. 撰寫到一個 custom hook -> useIntersectionObserver 
+   1. 需求是 當進入區塊顯示一定比例做一些事情，且當沒進入時候也可以做一些事情
+   2. 規格是 參數一是 要監聽的ref, 參數二是 Tuple陣列 Tuple第一個值代表比例，第二個值代表要執行的function，參數三是沒進入時候要做的事情
+   3. 先建立 thresholds 即 參數二陣列中每個項目第一個值即顯示比例所組成的 
+   4. 定義 IntersectionObserverCallback
+   5. 判斷有沒有相交，沒相交則執行參數三的 function
+   6. 相交則 先立下一個 flag ( isCalled ) 代表是否已經呼叫過函數 即處裡完該事件
+   7. 先把 參數二 陣列讀一遍 直到 進入比例 大於等於 陣列中的比例 執行 對應的 function 並把 isCalled 設為 true 來阻止之後的 function被執行
+   8. 最後保障每次 觸發 IntersectionObserverCallback 都可以 紀錄 是否相交 (isIntersecting) 以及 進入比率 (intersectionRatio) 狀態，並作為該hook的回傳
+3. 定義該 參數二陣列 與 參數三 的 function， 會使用到 useMemo 和 useCallback 因為 useIntersectionObserver 的 useEffect 會去偵測是否變動參考
+4. 定義 ResizeHandler 與 MINIMUM_PLAY_WIDTH ( 720px )，其中 ResizeHandler 會用到 isIntersecting 和 intersectionRatio
+   因為 縮放時候可能需會繼續播放 
+5. 撰寫第二個 custom hook -> useResizeObserver
+   1. 需求是 當 該元素改變大小 就執行特定事情
+   2. 使用 ResizeObserver 去監聽元素 並在元素大小發生改變時 觸發 ResizeHandler
