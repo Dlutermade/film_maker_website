@@ -1,4 +1,4 @@
-import { chakra, HStack } from "@chakra-ui/react";
+import { Center, chakra, HStack } from "@chakra-ui/react";
 
 import _Image from "next/image";
 
@@ -25,25 +25,26 @@ const HorizontalBlock = () => {
   useWheel(containerRef);
 
   return (
-    <HStack
-      h="100vh"
-      gap="30px"
-      px="30px"
-      justify="center"
-      align="center"
-      overflowX="hidden"
-      ref={containerRef}
-    >
-      {imgList.map((imgSrc, idx) => (
-        <ChakraImage
-          width="400px"
-          height="800px"
-          key={idx}
-          src={imgSrc}
-          alt="scape"
-        />
-      ))}
-    </HStack>
+    <Center h="100vh">
+      <HStack
+        gap="30px"
+        px="30px"
+        justify="center"
+        align="center"
+        overflowX="hidden"
+        ref={containerRef}
+      >
+        {imgList.map((imgSrc, idx) => (
+          <ChakraImage
+            width="400px"
+            height="800px"
+            key={idx}
+            src={imgSrc}
+            alt="scape"
+          />
+        ))}
+      </HStack>
+    </Center>
   );
 };
 
