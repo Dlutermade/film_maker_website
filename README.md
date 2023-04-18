@@ -51,3 +51,44 @@
 9. 撰寫動畫 
    1. 初始狀態與離開狀態: translateY: -96px, opacity: 0
    2. 進入狀態: translateY: 0px, opacity: 1
+
+#### Cards Shuffle Block
+
+1. 先分析一下 特效參考 
+   1. hover 單一 card 放大 1.1倍左右
+   2. 左上角先在上層 ( figma是右下角在上層 )
+   3. 卡片先打開，在收和 translateX + skew + z-index
+      1. 重點1. 打開比較慢，收和比較快，打開來時要停頓一下
+      2. 重點2. skew 看起來是X軸  爾且只有當下在上面那張卡片需要執行skew
+2. 創建檔案 src/components/CardsShuffleBlock/index.tsx
+3. 開始實作
+   1. const [lastOnTop, setLastOnTop] = useState(true); 設定變數 表示那張在上面的狀態
+   2. 最外面容器加上 { transformStyle: "preserve-3d" }(如下說明)  以及 relative 給 子元素使用absolute
+      因為會用到 translateZ ( Z-Index 無法作為關鍵影格使用)
+   3. 裡面兩張圖片皆使用 absolute 且 Hover 時候 放大1.1倍
+   4. 先設定關鍵影格 右下圖在上 切換到 左上圖在上
+      1. 左上圖
+      {
+         translateX: ["0px", "-250px", "-250px", "-160px", "0px"],
+         translateZ: ["0px", "0px", "0px", "250px", "250px"],
+      }
+      2. 右下圖
+      {
+         translateX: ["0px", "250px", "250px", "160px", "0px"],
+         translateZ: ["30px", "30px", "30px", "0px", "0px"],
+         skewX: ["0deg", "0deg", "-15deg", "-15deg", "0deg"],
+      }
+      3. 即先打開 停留一下切skew持續這個skew狀態直到收和到某個程度 再 歸位
+   5. 再設定關鍵影格 左上圖在上 切換到 右下圖在上
+      1. 左上圖
+      {
+         translateX: ["0px", "-250px", "-250px", "-180px", "0px"],
+         translateZ: ["30px", "30px", "30px", "0px", "0px"],
+         skewX: ["0deg", "0deg", "10deg", "10deg", "0deg"],
+      }
+      2. 右上圖
+      {
+         translateX: ["0px", "250px", "250px", "180px", "0px"],
+         translateZ: ["0px", "0px", "0px", "30px", "30px"],
+      }
+      3. 同 3.4.3

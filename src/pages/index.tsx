@@ -1,7 +1,6 @@
+import CardsShuffleBlock from "@/components/CardsShuffleBlock";
 import Header from "@/components/Header";
-import { Box } from "@chakra-ui/react";
 import Head from "next/head";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -14,6 +13,7 @@ export default function Home() {
       </Head>
       <main>
         <Header />
+        <CardsShuffleBlock />
       </main>
     </>
   );
