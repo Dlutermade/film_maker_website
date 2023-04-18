@@ -2,6 +2,7 @@ import CardsShuffleBlock from "@/components/CardsShuffleBlock";
 import EffectiveVideoBlock from "@/components/EffectiveVideoBlock";
 import FullScreenText from "@/components/FullScreenText";
 import Header from "@/components/Header";
+import HorizontalBlock from "@/components/HorizontalBlock";
 import Head from "next/head";
 
 export default function Home() {
@@ -22,6 +23,12 @@ export default function Home() {
           }
         />
         <EffectiveVideoBlock />
+        <FullScreenText
+          text={
+            "We are a creative agency, film production, branded & original content creators."
+          }
+        />
+        <HorizontalBlock />
       </main>
     </>
   );
