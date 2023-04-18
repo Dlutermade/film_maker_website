@@ -6,7 +6,7 @@ type Props = {
 
 const FullScreenText = ({ text }: Props) => {
   return (
-    <Center w="100vw" h="100vh">
+    <Center h="100vh">
       <Text
         fontSize="32px"
         lineHeight="40px"
