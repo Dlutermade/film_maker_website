@@ -14,6 +14,7 @@ const Header = () => {
           top="0"
           left="0"
           h="96px"
+          zIndex="100"
           initial={{ y: "-96px", opacity: 0 }}
           animate={{ y: "0px", opacity: 1 }}
           exit={{ y: "-96px", opacity: 0 }}
