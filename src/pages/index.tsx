@@ -1,4 +1,5 @@
 import CardsShuffleBlock from "@/components/CardsShuffleBlock";
+import FullScreenText from "@/components/FullScreenText";
 import Header from "@/components/Header";
 import Head from "next/head";
 
@@ -14,6 +15,11 @@ export default function Home() {
       <main>
         <Header />
         <CardsShuffleBlock />
+        <FullScreenText
+          text={
+            "We love to visualize stories because we love people and they inspire us."
+          }
+        />
       </main>
     </>
   );
