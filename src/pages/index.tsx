@@ -1,3 +1,5 @@
+import Header from "@/components/Header";
+import { Box } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
 
@@ -10,7 +12,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>5dvsl;dvk,sd;lv,os;hello</main>
+      <main>
+        <Header />
+      </main>
     </>
   );
 }
