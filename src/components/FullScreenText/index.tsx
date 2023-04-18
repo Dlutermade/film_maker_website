@@ -1,7 +1,7 @@
 import { Center, Text } from "@chakra-ui/react";
 
 type Props = {
-  text: string;
+  text: string[];
 };
 
 const FullScreenText = ({ text }: Props) => {
@@ -14,7 +14,12 @@ const FullScreenText = ({ text }: Props) => {
         fontWeight="bold"
         fontStyle="italic"
       >
-        {text}
+        {text.map((item, idx) => (
+          <span key={idx}>
+            {item}
+            <br />
+          </span>
+        ))}
       </Text>
     </Center>
   );

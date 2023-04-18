@@ -18,15 +18,17 @@ export default function Home() {
         <Header />
         <CardsShuffleBlock />
         <FullScreenText
-          text={
-            "We love to visualize stories because we love people and they inspire us."
-          }
+          text={[
+            "We love to visualize stories",
+            " because we love people and they inspire us.",
+          ]}
         />
         <EffectiveVideoBlock />
         <FullScreenText
-          text={
-            "We are a creative agency, film production, branded & original content creators."
-          }
+          text={[
+            "We are a creative agency, film production,",
+            "branded & original content creators.",
+          ]}
         />
         <HorizontalBlock />
       </main>
